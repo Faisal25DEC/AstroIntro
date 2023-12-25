@@ -1,0 +1,47 @@
+---
+import Footer from './Footer.astro'
+const achievements = [
+    {
+        order:"01",
+        title:"UI/UX DESIGN"
+    },
+    {order:"02", title:"WEB DESIGN"},
+    {
+        order:"03", title:"CONTENT"
+    },
+    {
+        order:"04", title:"BRANDING"
+    },
+    {
+        order:"05", title:"PARTNERSHIP",
+    },
+    {order:"06", title:"COMMUNITY"}
+]
+---
+---
+<div class="bg-[#11181c] text-white">
+  <section class="w-[82.5%] py-8 m-auto">
+    <div class="flex items-center justify-between">
+        <h2 class="w-[25%] text-[36px] font-semibold">SERVICES WE
+            PROVIDE   </h2>
+        <p class="w-[50%] text-[14px]"> At Hooman Digital, we offer a range of services to help you achieve your digital goals. Our services include: At Hooman Digital, we offer a range of services to help you achieve your digital goals. Our services include:</p>    
+    </div>
+    <ul class="grid grid-cols-3 gap-12 text-black pt-12">
+      {achievements.map((item)=>(
+<li class="bg-[#cfd9e6] bg-cover bg-no-repeat rounded-[2rem] flex flex-col items-center justify-center p-4 bg-image">
+            <h1 class="text-[5rem] font-medium">{item.order}</h1>
+            <h4 class="text-[2rem] flex items-center gap-2"> <span>{item.title}</span> <img src="/right-arrow.svg" alt="" class="w-6 h-6 pt-[2px]"> </h4>
+        </li>
+      ))  }
+       
+    </ul>
+    <Footer/>
+  </section>
+  
+</div>
+
+<style>
+    .bg-image{
+        background-image: url('/stars.svg');
+    }
+</style>

@@ -1,0 +1,19 @@
+---
+const {navLinks} = Astro.props;
+const renderNavItems = (items:any) => {
+    return (
+      <ul>
+        {items.map((item:any, index:number) => (
+          <li>
+            <a href={item.link}>{item.label}</a>
+            {item.subItems.length > 0 && renderNavItems(item.subItems)}
+          </li>
+        ))}
+      </ul>
+    );
+  };
+---
+
+
+
+  return <nav>{renderNavItems(navLinks)}</nav>;

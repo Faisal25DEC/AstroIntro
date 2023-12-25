@@ -1,0 +1,50 @@
+---
+
+// import 'bootstrap/dist/css/bootstrap.css'
+import { Accordion } from 'astro-bootstrap';
+const {item, index} = Astro.props;
+const id = 'manualAccordion-' + index;
+---
+
+<style>
+ .card {
+  background-color: rgba(10, 7, 32);
+  border-radius: 0;
+  color: white;
+  border: none;
+  box-shadow: none;
+  padding-left: 0.4rem;
+  padding-top: 1rem;
+}
+
+.card-header button {
+  display: flex;
+  gap: 1px;
+  align-items: center;
+}
+
+#manualAccordion-0 {
+  border: none !important;
+  background-color: black !important;
+}
+
+#manualAccordion-0 .accordion-item {
+  all: unset !important;
+}
+
+
+
+</style>
+
+<Accordion id={id} class = "accordion-custom">
+  <Accordion.Item>
+    <Accordion.Header parent={id} index={index}>{item.label}</Accordion.Header>
+    <Accordion.Body parent={id} index={index} show>
+     {item.subItems && item.subItems.map((ele:any)=>(
+        <a href={item.link}><p class="link">{ele.label}</p></a> 
+     ))}
+    </Accordion.Body>
+  </Accordion.Item>
+
+</Accordion>
+
